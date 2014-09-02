@@ -23,7 +23,7 @@
  -  [Ternary Operator](#ternary-operator)
 -  [Init Methods](#init-methods)
 -  [Class Constructor Methods](#class-constructor-methods)
--  [CGRect Functions](#cgect-functions)
+-  [CGRect Functions](#cgrect-functions)
 -  [Golden Path](#golden-path)
 -  [Error handling](#error-handling)
 -  [Singletons](#singletons)
