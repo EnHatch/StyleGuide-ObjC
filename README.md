@@ -33,15 +33,17 @@ Table of Contents
 
 Code Organization
 =======================
+Use #pragma mark - to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
 
+```Objective-C
 #pragma mark - Lifecycle
- 
 - (instancetype)init {}
 - (void)dealloc {}
 - (void)viewDidLoad {}
 - (void)viewWillAppear:(BOOL)animated {}
 - (void)didReceiveMemoryWarning {}
+
  
 #pragma mark - Custom Accessors
  
@@ -74,6 +76,6 @@ Use #pragma mark - to categorize methods in functional groupings and protocol/de
 #pragma mark - NSObject
  
 - (NSString *)description {}
-
+```
 
 
