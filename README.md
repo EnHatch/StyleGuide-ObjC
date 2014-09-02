@@ -1,8 +1,6 @@
-Objective-C-Style-Guide
-=======================
+#Objective-C-Style-Guide
 
-Table of Contents
-=======================
+##Table of Contents
 
 -  Code Organization
 -  Spacing
@@ -31,8 +29,8 @@ Table of Contents
 -  Line Breaks
 -  Xcode Project
 
-Code Organization
-=======================
+###Code Organization
+
 Use ```#pragma mark``` - to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
 
