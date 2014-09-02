@@ -3,11 +3,11 @@
 ##Table of Contents
 
 -  [Code Organization](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#code-organization)
--  Spacing
--  Comments
--  Naming
- -    Underscores
- -    Image Naming
+-  [Spacing](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#spacing)
+-  [Comments](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#comments)
+-  [Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#naming)
+ -    [Underscores](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#underscores)
+ -    [Image Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#imageNaming)
 -  Methods
 -  Variables
 -  Property Attributes
