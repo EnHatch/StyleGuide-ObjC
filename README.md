@@ -8,8 +8,8 @@ Table of Contents
 -  Spacing
 -  Comments
 -  Naming
--    Underscores
--    Image Naming
+ -    Underscores
+ -    Image Naming
 -  Methods
 -  Variables
 -  Property Attributes
