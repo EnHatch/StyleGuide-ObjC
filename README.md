@@ -145,7 +145,7 @@ id (^blockName2)(id) = ^ id (id args) {
 
 ##Naming
 
-Apple naming conventions should be adhered to wherever possible, especially those related to [memory management rules (NARC)](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html).
+Apple naming conventions should be adhered to wherever possible, especially those related to [memory management rules](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html).
 Long, descriptive method and variable names are good.
 ####Preferred:
 ```Objective-c
