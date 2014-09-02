@@ -83,14 +83,17 @@ Indent using 2 spaces (this conserves space in print and makes line wrapping les
 
 Method braces and other braces (if/else/switch/while etc.) always open on the same line as the statement but close on a new line.
 
-###Preferred:
+####Preferred:
+```Objective-C
 if (user.isHappy) {
   //Do something
 } else {
   //Do something else
 }
+```
 
-###Not Preferred:
+####Not Preferred:
+```Objective-C
 if (user.isHappy)
 {
     //Do something
@@ -98,6 +101,7 @@ if (user.isHappy)
 else {
     //Do something else
 }
+```
 
 There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 
@@ -106,14 +110,17 @@ Prefer using auto-synthesis. But if necessary, @synthesize and @dynamic should e
 Colon-aligning method invocation should often be avoided. There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Please do NOT however colon align methods containing blocks because Xcode's indenting makes it illegible.
 
 ###Preferred:
+```Objective-C
 // blocks are easily readable
 [UIView animateWithDuration:1.0 animations:^{
   // something
 } completion:^(BOOL finished) {
   // something
 }];
+```
 
 ###Not Preferred:
+```Objective-C
 // colon-aligning makes the block indentation hard to read
 [UIView animateWithDuration:1.0
                  animations:^{
@@ -122,6 +129,7 @@ Colon-aligning method invocation should often be avoided. There are cases where 
                  completion:^(BOOL finished) {
                      // something
                  }];
+```
 
 Comments
 =======================
