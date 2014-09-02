@@ -33,7 +33,7 @@ Table of Contents
 
 Code Organization
 =======================
-Use #pragma mark - to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
+Use ```#pragma mark``` - to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
 
 ```Objective-C
