@@ -20,7 +20,7 @@
 -  [Booleans](#booleans)
 -  [Conditionals](#conditionals)
  -  [Ternary Operator](#ternary-operator)
--  [Init Methods](#init-methds)
+-  [Init Methods](#init-methods)
 -  [Class Constructor Methods](#class-constructor-methods)
 -  [CGRect Functions](#CGRect-functions)
 -  [Golden Path](#golden-Path)
@@ -33,7 +33,6 @@
 
 Use ```#pragma mark``` - to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
-
 ```Objective-C
 #pragma mark - Lifecycle
 - (instancetype)init {}
@@ -42,7 +41,6 @@ Use ```#pragma mark``` - to categorize methods in functional groupings and proto
 - (void)viewWillAppear:(BOOL)animated {}
 - (void)didReceiveMemoryWarning {}
 
- 
 #pragma mark - Custom Accessors
  
 - (void)setCustomProperty:(id)value {}
@@ -143,7 +141,6 @@ UIButton *settingsButton;
 ```Objective-c
 UIButton *setBut;
 ```
-
 A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. 
 Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
 
@@ -151,24 +148,20 @@ Constants should be camel-case with all words capitalized and prefixed by the re
 ```Objective-c
 static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
-
 ####Not Preferred:
 ```Objective-c
 static NSTimeInterval const fadetime = 1.7;
 ```
-
 Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual ```Objective-c@synthesize``` statements unless you have good reason.
 
 ####Preferred:
 ```Objective-c
 @property (strong, nonatomic) NSString *descriptiveVariableName;
 ```
-
 ####Not Preferred:
 ```Objective-c
 id varnm;
 ```
-
 ###Underscores
 
 When using properties, instance variables should always be accessed and mutated using ```self..``` This means that all properties will be visually distinct, as they will all be prefaced with ```self..```
@@ -202,7 +195,6 @@ The usage of the word "and" is reserved. It should not be used for multiple para
 - (id)viewWithTag:(NSInteger)tag;
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;
 ```
-
 ####Not Preferred:
 ```Objective-C
 -(void)setT:(NSString *)text i:(UIImage *)image;
@@ -211,7 +203,6 @@ The usage of the word "and" is reserved. It should not be used for multiple para
 - (instancetype)initWithWidth:(CGFloat)width andHeight:(CGFloat)height;
 - (instancetype)initWith:(int)width and:(int)height;  // Never do this.
 ```
-
 ##Variables
 
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in ```for()``` loops.
@@ -229,7 +220,6 @@ Direct access to instance variables that 'back' properties should be avoided exc
 
 @end
 ```
-
 ####Not Preferred:
 ```Objective-C
 @interface RWTTutorial : NSObject {
@@ -246,7 +236,6 @@ Property attributes should be explicitly listed, and will help new programmers w
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSString *tutorialName;
 ```
-
 ####Not Preferred:
 ```Objective-C
 @property (nonatomic, weak) IBOutlet UIView *containerView;
@@ -258,7 +247,6 @@ Properties with mutable counterparts (e.g. ```NSString```) should prefer copy in
 ```Objective-C
 @property (copy, nonatomic) NSString *tutorialName;
 ```
-
 ####Not Preferred:
 ```Objective-C
 @property (strong, nonatomic) NSString *tutorialName;
@@ -286,6 +274,7 @@ UIApplication.sharedApplication.delegate;
 ##Literals
 
 ```NSString```, ```NSDictionary```, ```NSArray```, and ```NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that ```nil``` values can not be passed into ```NSArray``` and ```NSDictionary``` literals, as this will cause a crash.
+
 ####Preferred:
 ```Objective-C
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
