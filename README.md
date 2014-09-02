@@ -3,31 +3,31 @@
 ##Table of Contents
 
 -  [Code Organization](#code-organization)
--  [Spacing](spacing)
--  [Comments](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#comments)
--  [Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#naming)
- -    [Underscores](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#underscores)
- -    [Image Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#image-Naming)
--  [Methods](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#methods)
--  [Variables](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#variables)
--  [Property Attributes](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#property-attributes)
--  [Dot-Notation Syntax](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#dot-notation-syntax)
--  [Literals](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#literals)
--  [Constants](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#constants)
--  [Enumerated Types](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#enumerated-types)
--  [Case Statements](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#case-statements)
--  [Private Properties](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#private-properties)
--  [Booleans](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#booleans)
--  [Conditionals](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#conditionals)
--  [Ternary Operator](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#ternary-operator)
--  [Init Methods](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#init-methds)
--  [Class Constructor Methods](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#class-constructor-methods)
--  [CGRect Functions](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#CGRect-functions)
--  [Golden Path](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#golden-Path)
--  [Error handling](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#error-handling)
--  [Singletons](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#singletons)
--  [Line Breaks](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#line-breaks)
--  [Xcode Project](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#xcode-project)
+-  [Spacing](#spacing)
+-  [Comments](#comments)
+-  [Naming](#naming)
+ -    [Underscores](#underscores)
+ -    [Image Naming](#image-naming)
+-  [Methods](#methods)
+-  [Variables](#variables)
+-  [Property Attributes](#property-attributes)
+-  [Dot-Notation Syntax](#dot-notation-syntax)
+-  [Literals](#literals)
+-  [Constants](#constants)
+-  [Enumerated Types](#enumerated-types)
+-  [Case Statements](#case-statements)
+-  [Private Properties](#private-properties)
+-  [Booleans](#booleans)
+-  [Conditionals](#conditionals)
+ -  [Ternary Operator](#ternary-operator)
+-  [Init Methods](#init-methds)
+-  [Class Constructor Methods](#class-constructor-methods)
+-  [CGRect Functions](#CGRect-functions)
+-  [Golden Path](#golden-Path)
+-  [Error handling](#error-handling)
+-  [Singletons](#singletons)
+-  [Line Breaks](#line-breaks)
+-  [Xcode Project](#xcode-project)
 
 ##Code Organization
 
@@ -455,7 +455,7 @@ or
 if (!error) return success;
 ```
 
-##Ternary Operator
+###Ternary Operator
 
 The Ternary operator, ```?:``` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an ```if``` statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.
 
@@ -474,7 +474,8 @@ result = isHorizontal ? x : y;
 result = a > b ? x = c > d ? c : d : y;
 ```
 
-Init Methods
+##Init Methods
+
 Init methods should follow the convention provided by Apple's generated code template. A return type of ```'instancetype'``` should also be used instead of ```'id'```.
 ```Objective-C
 - (instancetype)init {
@@ -486,7 +487,9 @@ Init methods should follow the convention provided by Apple's generated code tem
 }
 ```
 See Class Constructor Methods for link to article on ```instancetype```.
-Class Constructor Methods
+
+##Class Constructor Methods
+
 Where class constructor methods are used, these should always return type of ```'instancetype'``` and never ```'id'```. This ensures the compiler correctly infers the result type.
 ```Objective-C
 @interface Airplane
