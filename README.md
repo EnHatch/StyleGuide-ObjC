@@ -5,6 +5,7 @@
 -  [Code Organization](#code-organization)
 -  [Spacing](#spacing)
 -  [Comments](#comments)
+-  [Blocks](#blocks)
 -  [Naming](#naming)
  -    [Underscores](#underscores)
  -    [Image Naming](#image-naming)
@@ -125,6 +126,22 @@ Colon-aligning method invocation should often be avoided. There are cases where 
 When they are needed, comments should be used to explain why a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. Exception: This does not apply to those comments used to generate documentation.
+
+##Blocks
+
+- Blocks should have a space between their return type and name.
+- Block definitions should omit their return type when possible.
+- Block definitions should omit their arguments if they are void.
+- Parameters in block types should be named unless the block is initialized immediately.
+```Objective-C
+void (^blockName1)(void) = ^{
+    // do some things
+};
+
+id (^blockName2)(id) = ^ id (id args) {
+    // do some things
+};
+```
 
 ##Naming
 
