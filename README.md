@@ -73,10 +73,9 @@ Use ```#pragma mark``` - to categorize methods in functional groupings and proto
 ```
 ##Spacing
 
-Indent using 2 spaces (this conserves space in print and makes line wrapping less likely). Never indent with tabs. Be sure to set this preference in Xcode.
+Indent using 2 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
 
 Method braces and other braces (```if/else/switch/while``` etc.) always open on the same line as the statement but close on a new line.
-
 ####Preferred:
 ```Objective-C
 if (user.isHappy) {
@@ -97,9 +96,9 @@ else {
 ```
 There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 
-Prefer using auto-synthesis. But if necessary, @synthesize and @dynamic should each be declared on new lines in the implementation.
+Prefer using auto-synthesis. But if necessary, ```@synthesize``` and ```@dynamic``` should each be declared on new lines in the implementation.
 
-Colon-aligning method invocation should often be avoided. There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Please do NOT however colon align methods containing blocks because Xcode's indenting makes it illegible.
+Colon-aligning method invocation should often be avoided. There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Do NOT however colon align methods containing blocks because Xcode's indenting makes it illegible.
 ###Preferred:
 ```Objective-C
 // blocks are easily readable
@@ -144,7 +143,7 @@ Constants should be camel-case with all words capitalized and prefixed by the re
 
 ####Preferred:
 ```Objective-c
-static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
+static NSTimeInterval const ENHTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 ####Not Preferred:
 ```Objective-c
@@ -163,7 +162,7 @@ id varnm;
 
 When using properties, instance variables should always be accessed and mutated using ```self..``` This means that all properties will be visually distinct, as they will all be prefaced with ```self..```
 
-An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
+An exception to this: inside initializers, the backing instance variable (i.e.```_variableName```) should be used directly to avoid any potential side effects of the getters/setters.
 
 Local variables should not contain underscores.
 
@@ -202,14 +201,14 @@ The usage of the word "and" is reserved. It should not be used for multiple para
 ##Variables
 
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in ```for()``` loops.
-Asterisks indicating pointers belong with the variable, e.g., ```NSString *text not NSString* text orNSString * text```, except in the case of constants.
+Asterisks indicating pointers belong with the variable, e.g., ```NSString *text``` not ```NSString* text``` or ```NSString * text```, except in the case of constants.
 
 Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
 
 Direct access to instance variables that 'back' properties should be avoided except in initializer methods (```init```, ```initWithCoder:```, etc…), ```dealloc``` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
 ####Preferred:
 ```Objective-C
-@interface RWTTutorial : NSObject
+@interface ENHTutorial : NSObject
 
 @property (strong, nonatomic) NSString *tutorialName;
 
@@ -217,7 +216,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 ```
 ####Not Preferred:
 ```Objective-C
-@interface RWTTutorial : NSObject {
+@interface ENHTutorial : NSObject {
   NSString *tutorialName;
 }
 ```
@@ -236,7 +235,7 @@ Property attributes should be explicitly listed, and will help new programmers w
 @property (nonatomic) NSString *tutorialName;
 ```
 
-Properties with mutable counterparts (e.g. ```NSString```) should prefer copy instead of ```strong```. Why? Even if you declared a property as ```NSString``` somebody might pass in an instance of an ```NSMutableString``` and then change it without you noticing that.
+Properties with mutable counterparts (e.g. ```NSString```) should prefer copy instead of ```strong```. Even if you declared a property as ```NSString``` somebody might pass in an instance of an ```NSMutableString``` and then change it without you noticing that.
 ####Preferred:
 ```Objective-C
 @property (copy, nonatomic) NSString *tutorialName;
@@ -311,10 +310,10 @@ typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
 You can also make explicit value assignments (showing older k-style constant definition):
 ```Objective-C
 typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
-  RWTPinSizeMin = 1,
-  RWTPinSizeMax = 5,
-  RWTPinCountMin = 100,
-  RWTPinCountMax = 500,
+  ENHPinSizeMin = 1,
+  ENHPinSizeMax = 5,
+  ENHPinCountMin = 100,
+  ENHPinCountMax = 500,
 };
 ```
 Older k-style constant definitions should be avoided unless writing CoreFoundation C code (unlikely).
@@ -363,16 +362,16 @@ switch (condition) {
 ```
 When using an enumerated type for a switch, 'default' is not needed. For example:
 ```Objective-C
-RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
+ENHLeftMenuTopItemType menuType = ENHLeftMenuTopItemMain;
 
 switch (menuType) {
-  case RWTLeftMenuTopItemMain:
+  case ENHLeftMenuTopItemMain:
     // ...
     break;
-  case RWTLeftMenuTopItemShows:
+  case ENHLeftMenuTopItemShows:
     // ...
     break;
-  case RWTLeftMenuTopItemSchedule:
+  case ENHLeftMenuTopItemSchedule:
     // ...
     break;
 }
@@ -383,7 +382,7 @@ switch (menuType) {
 Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as ```RWTPrivate``` or ```private```) should never be used unless extending another class. The Anonymous category can be shared/exposed for testing using the ```+Private.h``` file naming convention.
 For Example:
 ```Objective-C
-@interface RWTDetailViewController ()
+@interface ENHDetailViewController ()
 
 @property (strong, nonatomic) GADBannerView *googleAdView;
 @property (strong, nonatomic) ADBannerView *iAdView;
