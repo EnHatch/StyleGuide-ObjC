@@ -2,7 +2,7 @@
 
 ##Table of Contents
 
--  Code Organization
+-  [Code Organization]
 -  Spacing
 -  Comments
 -  Naming
