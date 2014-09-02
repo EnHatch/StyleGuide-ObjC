@@ -58,8 +58,6 @@ Use ```#pragma mark``` - to categorize methods in functional groupings and proto
  
 - (void)publicMethod {}
  
-Use #pragma mark - to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
- 
 #pragma mark - Private
  
 - (void)privateMethod {}
@@ -91,7 +89,6 @@ if (user.isHappy) {
   //Do something else
 }
 ```
-
 ####Not Preferred:
 ```Objective-C
 if (user.isHappy)
@@ -118,7 +115,6 @@ Colon-aligning method invocation should often be avoided. There are cases where 
   // something
 }];
 ```
-
 ###Not Preferred:
 ```Objective-C
 // colon-aligning makes the block indentation hard to read
@@ -136,5 +132,63 @@ Comments
 When they are needed, comments should be used to explain why a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. Exception: This does not apply to those comments used to generate documentation.
+
+Naming
+=======================
+Apple naming conventions should be adhered to wherever possible, especially those related to memory management rules (NARC).
+Long, descriptive method and variable names are good.
+
+####Preferred:
+```Objective-c
+UIButton *settingsButton;
+```
+####Not Preferred:
+```Objective-c
+UIButton *setBut;
+```
+
+A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. 
+Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
+
+####Preferred:
+```Objective-c
+static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
+```
+
+####Not Preferred:
+```Objective-c
+static NSTimeInterval const fadetime = 1.7;
+```
+
+Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual ```Objective-c@synthesize``` statements unless you have good reason.
+
+####Preferred:
+```Objective-c
+@property (strong, nonatomic) NSString *descriptiveVariableName;
+```
+
+####Not Preferred:
+```Objective-c
+id varnm;
+```
+
+###Underscores
+
+When using properties, instance variables should always be accessed and mutated using self.. This means that all properties will be visually distinct, as they will all be prefaced with self..
+
+An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
+Local variables should not contain underscores.
+
+###Image Naming
+
+Image names should be named consistently to preserve organization and developer sanity. They should be named as one camel case string with a description of their purpose, followed by the un-prefixed name of the class or property they are customizing (if there is one), followed by a further description of color and/or placement, and finally their state.
+
+For example:
+```Objective-c
+RefreshBarButtonItem / RefreshBarButtonItem@2x and RefreshBarButtonItemSelected /RefreshBarButtonItemSelected@2x
+ArticleNavigationBarWhite / ArticleNavigationBarWhite@2x andArticleNavigationBarBlackSelected / ArticleNavigationBarBlackSelected@2x.
+```
+Images that are used for a similar purpose should be grouped in respective groups in an Images folder.
+
 
 
