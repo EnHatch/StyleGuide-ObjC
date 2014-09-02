@@ -133,7 +133,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 - Block definitions should omit their return type when possible.
 - Block definitions should omit their arguments if they are void.
 - Parameters in block types should be named unless the block is initialized immediately.
-```Objective-C
+```
 void (^blockName1)(void) = ^{
     // do some things
 };
@@ -303,13 +303,13 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as ```static``` constants and not ```#define``` unless explicitly being used as a macro.
 ####Preferred:
 ```Objective-C
-static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com";
+static NSString * const ENHImageCellIdentifier = @"ImageCellIdentifier";
 
-static CGFloat const RWTImageThumbnailHeight = 50.0;
+static CGFloat const ENHImageThumbnailHeight = 50.0;
 ```
 ####Not Preferred:
 ```Objective-C
-#define CompanyName @"RayWenderlich.com"
+#define ImageCellIdentifier @"ImageCellIdentifier"
 
 #define thumbnailHeight 2
 ```
@@ -318,15 +318,15 @@ static CGFloat const RWTImageThumbnailHeight = 50.0;
 When using ```enums```, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: ```NS_ENUM()```
 For Example:
 ```Objective-C
-typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
-  RWTLeftMenuTopItemMain,
-  RWTLeftMenuTopItemShows,
-  RWTLeftMenuTopItemSchedule
+typedef NS_ENUM(NSInteger, ENHLeftMenuTopItemType) {
+  ENHLeftMenuTopItemMain,
+  ENHLeftMenuTopItemShows,
+  ENHLeftMenuTopItemSchedule
 };
 ```
 You can also make explicit value assignments (showing older k-style constant definition):
 ```Objective-C
-typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
+typedef NS_ENUM(NSInteger, ENHGlobalConstants) {
   ENHPinSizeMin = 1,
   ENHPinSizeMax = 5,
   ENHPinCountMin = 100,
@@ -485,7 +485,7 @@ See [Class Constructor Methods](#class-constructor-methods) for link to article 
 Where class constructor methods are used, these should always return type of ```'instancetype'``` and never ```'id'```. This ensures the compiler correctly infers the result type.
 ```Objective-C
 @interface Airplane
-+ (instancetype)airplaneWithType:(RWTAirplaneType)type;
++ (instancetype)airplaneWithType:(ENHAirplaneType)type;
 @end
 ```
 
