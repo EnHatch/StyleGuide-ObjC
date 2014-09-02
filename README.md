@@ -100,7 +100,6 @@ There should be exactly one blank line between methods to aid in visual clarity 
 Prefer using auto-synthesis. But if necessary, @synthesize and @dynamic should each be declared on new lines in the implementation.
 
 Colon-aligning method invocation should often be avoided. There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Please do NOT however colon align methods containing blocks because Xcode's indenting makes it illegible.
-
 ###Preferred:
 ```Objective-C
 // blocks are easily readable
@@ -132,7 +131,6 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 Apple naming conventions should be adhered to wherever possible, especially those related to memory management rules (NARC).
 Long, descriptive method and variable names are good.
-
 ####Preferred:
 ```Objective-c
 UIButton *settingsButton;
@@ -153,7 +151,6 @@ static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDura
 static NSTimeInterval const fadetime = 1.7;
 ```
 Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual ```Objective-c@synthesize``` statements unless you have good reason.
-
 ####Preferred:
 ```Objective-c
 @property (strong, nonatomic) NSString *descriptiveVariableName;
@@ -187,7 +184,6 @@ Images that are used for a similar purpose should be grouped in respective group
 
 In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style). Always include a keyword and be descriptive with the word before the argument which describes the argument.
 The usage of the word "and" is reserved. It should not be used for multiple parameters as illustrated in the ```initWithWidth:height:``` example below.
-
 ####Preferred:
 ```Objective-C
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
@@ -211,7 +207,6 @@ Asterisks indicating pointers belong with the variable, e.g., ```NSString *text 
 Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
 
 Direct access to instance variables that 'back' properties should be avoided except in initializer methods (```init```, ```initWithCoder:```, etc…), ```dealloc``` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
-
 ####Preferred:
 ```Objective-C
 @interface RWTTutorial : NSObject
@@ -230,7 +225,6 @@ Direct access to instance variables that 'back' properties should be avoided exc
 ##Property Attributes
 
 Property attributes should be explicitly listed, and will help new programmers when reading the code. The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
-
 ####Preferred:
 ```Objective-C
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -257,7 +251,6 @@ Properties with mutable counterparts (e.g. ```NSString```) should prefer copy in
 Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods. Read more here
 
 Dot-notation should always be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
-
 ####Preferred:
 ```Objective-C
 NSInteger arrayCount = [self.array count];
@@ -274,7 +267,6 @@ UIApplication.sharedApplication.delegate;
 ##Literals
 
 ```NSString```, ```NSDictionary```, ```NSArray```, and ```NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that ```nil``` values can not be passed into ```NSArray``` and ```NSDictionary``` literals, as this will cause a crash.
-
 ####Preferred:
 ```Objective-C
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
@@ -293,7 +285,6 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 ##Constants
 
 Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as ```static``` constants and not ```#define``` unless explicitly being used as a macro.
-
 ####Preferred:
 ```Objective-C
 static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com";
@@ -405,7 +396,6 @@ For Example:
 
 Objective-C uses ```YES``` and ```NO```. Therefore ```true``` and ```false``` should only be used for CoreFoundation, C or C++ code. Since ```nil``` resolves to ```NO``` it is unnecessary to compare it in conditions. Never compare something directly to ```YES```, because ```YES``` is defined to 1 and a ```BOOL``` can be up to 8 bits.
 This allows for more consistency across files and greater visual clarity.
-
 ####Preferred:
 ```Objective-C
 if (someObject) {}
@@ -427,7 +417,6 @@ Text and example taken from the Cocoa Naming Guidelines.
 ##Conditionals
 
 Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, even more dangerous defect may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
-
 ####Preferred:
 ```Objective-C
 if (!error) {
@@ -449,7 +438,6 @@ if (!error) return success;
 The Ternary operator, ```?:``` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an ```if``` statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.
 
 Non-boolean variables should be compared against something, and parentheses are added for improved readability. If the variable being compared is a boolean type, then no parentheses are needed.
-
 ####Preferred:
 ```Objective-C
 NSInteger value = 5;
@@ -492,7 +480,6 @@ More information on instancetype can be found on NSHipster.com.
 
 When accessing the ```x```, ```y```, ```width```, or ```height``` of a ```CGRect```, always use the ```CGGeometry``` functions instead of direct struct member access. From Apple's ```CGGeometry``` reference:
 All functions described in this reference that take ```CGRect``` data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
-
 ####Preferred:
 ```Objective-C
 CGRect frame = self.view.frame;
@@ -503,7 +490,6 @@ CGFloat width = CGRectGetWidth(frame);
 CGFloat height = CGRectGetHeight(frame);
 CGRect frame = CGRectMake(0.0, 0.0, width, height);
 ```
-
 ####Not Preferred:
 ```Objective-C
 CGRect frame = self.view.frame;
@@ -518,7 +504,6 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 ##Golden Path
 
 When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path. That is, don't nest if statements. Multiple return statements are OK.
-
 ####Preferred:
 ```Objective-C
 - (void)someMethod {
@@ -540,7 +525,6 @@ When coding with conditionals, the left hand margin of the code should be the "g
 ##Error handling
 
 When methods return an error parameter by reference, switch on the returned value, not the error variable.
-
 ####Preferred:
 ```Objective-C
 NSError *error;
