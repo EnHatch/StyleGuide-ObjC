@@ -211,57 +211,76 @@ Not Preferred:
 
 Variables
 =======================
-Variables should be named as descriptively as possible. Single letter variable names should be avoided except in for() loops.
-Asterisks indicating pointers belong with the variable, e.g., NSString *text not NSString* text orNSString * text, except in the case of constants.
+Variables should be named as descriptively as possible. Single letter variable names should be avoided except in ```for()``` loops.
+Asterisks indicating pointers belong with the variable, e.g., ```NSString *text not NSString* text orNSString * text```, except in the case of constants.
+
 Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
 Direct access to instance variables that 'back' properties should be avoided except in initializer methods (init, initWithCoder:, etc…), dealloc methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
-Preferred:
+
+####Preferred:
+```Objective-C
 @interface RWTTutorial : NSObject
 
 @property (strong, nonatomic) NSString *tutorialName;
 
 @end
+```
 
-Not Preferred:
+####Not Preferred:
+```Objective-C
 @interface RWTTutorial : NSObject {
   NSString *tutorialName;
 }
+```
 
 Property Attributes
 =======================
 Property attributes should be explicitly listed, and will help new programmers when reading the code. The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
-Preferred:
+
+####Preferred:
+```Objective-C
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSString *tutorialName;
+```
 
-Not Preferred:
+####Not Preferred:
+```Objective-C
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic) NSString *tutorialName;
+```
 
-Properties with mutable counterparts (e.g. NSString) should prefer copy instead of strong. Why? Even if you declared a property as NSString somebody might pass in an instance of anNSMutableString and then change it without you noticing that.
-Preferred:
+Properties with mutable counterparts (e.g. ```NSString```) should prefer copy instead of strong. Why? Even if you declared a property as ```NSString``` somebody might pass in an instance of an ```NSMutableString``` and then change it without you noticing that.
+####Preferred:
+```Objective-C
 @property (copy, nonatomic) NSString *tutorialName;
+```
 
-Not Preferred:
+####Not Preferred:
+```Objective-C
 @property (strong, nonatomic) NSString *tutorialName;
+```
 
 Dot-Notation Syntax
 =======================
 Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods. Read more here
 Dot-notation should always be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
-Preferred:
+
+####Preferred:
+```Objective-C
 NSInteger arrayCount = [self.array count];
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
-
-Not Preferred:
+```
+####Not Preferred:
+```Objective-C
 NSInteger arrayCount = self.array.count;
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
+```
 
 Literals
 =======================
-```Objective-CNSString, NSDictionary, NSArray, and NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that nil values can not be passed into ```Objective-CNSArray``` and ```Objective-CNSDictionary``` literals, as this will cause a crash.
+```NSString, NSDictionary, NSArray,``` and ```NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that nil values can not be passed into ```NSArray``` and ```NSDictionary``` literals, as this will cause a crash.
 ####Preferred:
 ```Objective-C
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
