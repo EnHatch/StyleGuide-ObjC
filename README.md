@@ -174,9 +174,10 @@ id varnm;
 
 ###Underscores
 
-When using properties, instance variables should always be accessed and mutated using self.. This means that all properties will be visually distinct, as they will all be prefaced with self..
+When using properties, instance variables should always be accessed and mutated using ```self..``` This means that all properties will be visually distinct, as they will all be prefaced with ```self..```
 
 An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
+
 Local variables should not contain underscores.
 
 ###Image Naming
@@ -195,19 +196,24 @@ Images that are used for a similar purpose should be grouped in respective group
 Methods
 =======================
 In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style). Always include a keyword and be descriptive with the word before the argument which describes the argument.
-The usage of the word "and" is reserved. It should not be used for multiple parameters as illustrated in the initWithWidth:height: example below.
-Preferred:
+The usage of the word "and" is reserved. It should not be used for multiple parameters as illustrated in the ```initWithWidth:height:``` example below.
+
+####Preferred:
+```Objective-C
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 - (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
 - (id)viewWithTag:(NSInteger)tag;
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;
+```
 
-Not Preferred:
+####Not Preferred:
+```Objective-C
 -(void)setT:(NSString *)text i:(UIImage *)image;
 - (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag;
 - (id)taggedView:(NSInteger)tag;
 - (instancetype)initWithWidth:(CGFloat)width andHeight:(CGFloat)height;
 - (instancetype)initWith:(int)width and:(int)height;  // Never do this.
+```
 
 Variables
 =======================
@@ -215,7 +221,8 @@ Variables should be named as descriptively as possible. Single letter variable n
 Asterisks indicating pointers belong with the variable, e.g., ```NSString *text not NSString* text orNSString * text```, except in the case of constants.
 
 Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
-Direct access to instance variables that 'back' properties should be avoided except in initializer methods (init, initWithCoder:, etc…), dealloc methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
+
+Direct access to instance variables that 'back' properties should be avoided except in initializer methods (```init```, ```initWithCoder:```, etc…), ```dealloc``` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
 
 ####Preferred:
 ```Objective-C
@@ -263,6 +270,7 @@ Properties with mutable counterparts (e.g. ```NSString```) should prefer copy in
 Dot-Notation Syntax
 =======================
 Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods. Read more here
+
 Dot-notation should always be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
 
 ####Preferred:
