@@ -2,7 +2,7 @@
 
 ##Table of Contents
 
--  [Code Organization](https://github.com/sj442/Objective-C-Style-Guide/edit/master/README.md#code-organization)
+-  [Code Organization](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#code-organization)
 -  Spacing
 -  Comments
 -  Naming
