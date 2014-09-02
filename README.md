@@ -185,10 +185,99 @@ Image names should be named consistently to preserve organization and developer 
 
 For example:
 ```Objective-c
-RefreshBarButtonItem / RefreshBarButtonItem@2x and RefreshBarButtonItemSelected /RefreshBarButtonItemSelected@2x
-ArticleNavigationBarWhite / ArticleNavigationBarWhite@2x andArticleNavigationBarBlackSelected / ArticleNavigationBarBlackSelected@2x.
+RefreshBarButtonItem / RefreshBarButtonItem@2x and 
+RefreshBarButtonItemSelected/RefreshBarButtonItemSelected@2x
+ArticleNavigationBarWhite / ArticleNavigationBarWhite@2x and 
+ArticleNavigationBarBlackSelected / ArticleNavigationBarBlackSelected@2x.
 ```
 Images that are used for a similar purpose should be grouped in respective groups in an Images folder.
+
+Methods
+=======================
+In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple's style). Always include a keyword and be descriptive with the word before the argument which describes the argument.
+The usage of the word "and" is reserved. It should not be used for multiple parameters as illustrated in the initWithWidth:height: example below.
+Preferred:
+- (void)setExampleText:(NSString *)text image:(UIImage *)image;
+- (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
+- (id)viewWithTag:(NSInteger)tag;
+- (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;
+
+Not Preferred:
+-(void)setT:(NSString *)text i:(UIImage *)image;
+- (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag;
+- (id)taggedView:(NSInteger)tag;
+- (instancetype)initWithWidth:(CGFloat)width andHeight:(CGFloat)height;
+- (instancetype)initWith:(int)width and:(int)height;  // Never do this.
+
+Variables
+=======================
+Variables should be named as descriptively as possible. Single letter variable names should be avoided except in for() loops.
+Asterisks indicating pointers belong with the variable, e.g., NSString *text not NSString* text orNSString * text, except in the case of constants.
+Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
+Direct access to instance variables that 'back' properties should be avoided except in initializer methods (init, initWithCoder:, etc…), dealloc methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
+Preferred:
+@interface RWTTutorial : NSObject
+
+@property (strong, nonatomic) NSString *tutorialName;
+
+@end
+
+Not Preferred:
+@interface RWTTutorial : NSObject {
+  NSString *tutorialName;
+}
+
+Property Attributes
+=======================
+Property attributes should be explicitly listed, and will help new programmers when reading the code. The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
+Preferred:
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (strong, nonatomic) NSString *tutorialName;
+
+Not Preferred:
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic) NSString *tutorialName;
+
+Properties with mutable counterparts (e.g. NSString) should prefer copy instead of strong. Why? Even if you declared a property as NSString somebody might pass in an instance of anNSMutableString and then change it without you noticing that.
+Preferred:
+@property (copy, nonatomic) NSString *tutorialName;
+
+Not Preferred:
+@property (strong, nonatomic) NSString *tutorialName;
+
+Dot-Notation Syntax
+=======================
+Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods. Read more here
+Dot-notation should always be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
+Preferred:
+NSInteger arrayCount = [self.array count];
+view.backgroundColor = [UIColor orangeColor];
+[UIApplication sharedApplication].delegate;
+
+Not Preferred:
+NSInteger arrayCount = self.array.count;
+[view setBackgroundColor:[UIColor orangeColor]];
+UIApplication.sharedApplication.delegate;
+
+Literals
+=======================
+```Objective-CNSString, NSDictionary, NSArray, and NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that nil values can not be passed into ```Objective-CNSArray``` and ```Objective-CNSDictionary``` literals, as this will cause a crash.
+####Preferred:
+```Objective-C
+NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
+NSNumber *shouldUseLiterals = @YES;
+NSNumber *buildingStreetNumber = @10018;
+```
+####Not Preferred:
+```Objective-C
+NSArray *names = [NSArray arrayWithObjects:@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul", nil];
+NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @"Kate", @"iPhone", @"Kamal", @"iPad", @"Bill", @"Mobile Web", nil];
+NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
+NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
+```
+
+
 
 
 
