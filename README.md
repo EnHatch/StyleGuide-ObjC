@@ -249,7 +249,7 @@ Property attributes should be explicitly listed, and will help new programmers w
 @property (nonatomic) NSString *tutorialName;
 ```
 
-Properties with mutable counterparts (e.g. ```NSString```) should prefer copy instead of strong. Why? Even if you declared a property as ```NSString``` somebody might pass in an instance of an ```NSMutableString``` and then change it without you noticing that.
+Properties with mutable counterparts (e.g. ```NSString```) should prefer copy instead of ```strong```. Why? Even if you declared a property as ```NSString``` somebody might pass in an instance of an ```NSMutableString``` and then change it without you noticing that.
 ####Preferred:
 ```Objective-C
 @property (copy, nonatomic) NSString *tutorialName;
@@ -280,7 +280,7 @@ UIApplication.sharedApplication.delegate;
 
 Literals
 =======================
-```NSString, NSDictionary, NSArray,``` and ```NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that nil values can not be passed into ```NSArray``` and ```NSDictionary``` literals, as this will cause a crash.
+```NSString```, ```NSDictionary```, ```NSArray```, and ```NSNumber``` literals should be used whenever creating immutable instances of those objects. Pay special care that ```nil``` values can not be passed into ```NSArray``` and ```NSDictionary``` literals, as this will cause a crash.
 ####Preferred:
 ```Objective-C
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
