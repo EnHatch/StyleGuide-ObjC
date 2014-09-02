@@ -472,7 +472,7 @@ Where class constructor methods are used, these should always return type of ```
 @end
 ```
 
-More information on instancetype can be found on [NSHipster.com](www.nshipster.com).
+More information on instancetype can be found on [NSHipster.com](http://nshipster.com).
 
 ##CGRect Functions
 
