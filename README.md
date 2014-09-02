@@ -2,32 +2,32 @@
 
 ##Table of Contents
 
--  [Code Organization](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#code-organization)
--  [Spacing](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#spacing)
+-  [Code Organization](#code-organization)
+-  [Spacing](spacing)
 -  [Comments](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#comments)
 -  [Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#naming)
  -    [Underscores](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#underscores)
- -    [Image Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#imageNaming)
--  Methods
--  Variables
--  Property Attributes
--  Dot-Notation Syntax
--  Literals
--  Constants
--  Enumerated Types
--  Case Statements
--  Private Properties
--  Booleans
--  Conditionals
--  Ternary Operator
--  Init Methods
--  Class Constructor Methods
--  CGRect Functions
--  Golden Path
--  Error handling
--  Singletons
--  Line Breaks
--  Xcode Project
+ -    [Image Naming](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#image-Naming)
+-  [Methods](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#methods)
+-  [Variables](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#variables)
+-  [Property Attributes](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#property-attributes)
+-  [Dot-Notation Syntax](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#dot-notation-syntax)
+-  [Literals](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#literals)
+-  [Constants](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#constants)
+-  [Enumerated Types](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#enumerated-types)
+-  [Case Statements](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#case-statements)
+-  [Private Properties](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#private-properties)
+-  [Booleans](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#booleans)
+-  [Conditionals](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#conditionals)
+-  [Ternary Operator](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#ternary-operator)
+-  [Init Methods](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#init-methds)
+-  [Class Constructor Methods](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#class-constructor-methods)
+-  [CGRect Functions](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#CGRect-functions)
+-  [Golden Path](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#golden-Path)
+-  [Error handling](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#error-handling)
+-  [Singletons](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#singletons)
+-  [Line Breaks](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#line-breaks)
+-  [Xcode Project](https://github.com/sj442/Objective-C-Style-Guide/blob/master/README.md#xcode-project)
 
 ##Code Organization
 
