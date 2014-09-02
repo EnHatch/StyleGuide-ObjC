@@ -128,7 +128,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 ##Naming
 
-Apple naming conventions should be adhered to wherever possible, especially those related to memory management rules (NARC).
+Apple naming conventions should be adhered to wherever possible, especially those related to [memory management rules (NARC)](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html).
 Long, descriptive method and variable names are good.
 ####Preferred:
 ```Objective-c
@@ -203,9 +203,9 @@ The usage of the word "and" is reserved. It should not be used for multiple para
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in ```for()``` loops.
 Asterisks indicating pointers belong with the variable, e.g., ```NSString *text``` not ```NSString* text``` or ```NSString * text```, except in the case of constants.
 
-Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
+[Private properties](#private-properties) should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
 
-Direct access to instance variables that 'back' properties should be avoided except in initializer methods (```init```, ```initWithCoder:```, etc…), ```dealloc``` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see here.
+Direct access to instance variables that 'back' properties should be avoided except in initializer methods (```init```, ```initWithCoder:```, etc…), ```dealloc``` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see [here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 ####Preferred:
 ```Objective-C
 @interface ENHTutorial : NSObject
@@ -247,7 +247,7 @@ Properties with mutable counterparts (e.g. ```NSString```) should prefer copy in
 
 ##Dot-Notation Syntax
 
-Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods. Read more here
+Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods. Read more [here](https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html)
 
 Dot-notation should always be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.
 ####Preferred:
@@ -411,11 +411,10 @@ If the name of a ```BOOL``` property is expressed as an adjective, the property 
 ```Objective-C
 @property (assign, getter=isEditable) BOOL editable;
 ```
-Text and example taken from the Cocoa Naming Guidelines.
 
 ##Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, even more dangerous defect may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 ####Preferred:
 ```Objective-C
 if (!error) {
@@ -462,7 +461,7 @@ Init methods should follow the convention provided by Apple's generated code tem
   return self;
 }
 ```
-See Class Constructor Methods for link to article on ```instancetype```.
+See [Class Constructor Methods](#class-constructor-methods) for link to article on ```instancetype```.
 
 ##Class Constructor Methods
 
@@ -473,11 +472,11 @@ Where class constructor methods are used, these should always return type of ```
 @end
 ```
 
-More information on instancetype can be found on NSHipster.com.
+More information on instancetype can be found on [NSHipster.com](www.nshipster.com).
 
 ##CGRect Functions
 
-When accessing the ```x```, ```y```, ```width```, or ```height``` of a ```CGRect```, always use the ```CGGeometry``` functions instead of direct struct member access. From Apple's ```CGGeometry``` reference:
+When accessing the ```x```, ```y```, ```width```, or ```height``` of a ```CGRect```, always use the [```CGGeometry``` functions](https://developer.apple.com/library/ios/documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access. From Apple's ```CGGeometry``` reference:
 All functions described in this reference that take ```CGRect``` data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 ####Preferred:
 ```Objective-C
@@ -558,8 +557,6 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 }
 ```
 
-This will prevent possible and sometimes prolific crashes.
-
 ##Line Breaks
 
 Line breaks are an important topic since this style guide is focused for print and online readability.
@@ -578,9 +575,4 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
 
-When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many additional warnings as possible. If you need to ignore a specific warning, use Clang's pragma feature.
-
-
-
-
-
+When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many additional warnings as possible.
