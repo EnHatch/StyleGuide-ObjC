@@ -306,41 +306,51 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 
 Constants
 =======================
-Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as static constants and not #defines unless explicitly being used as a macro.
-Preferred:
+Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as ```static``` constants and not ```#define``` unless explicitly being used as a macro.
+####Preferred:
+```Objective-C
 static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com";
 
 static CGFloat const RWTImageThumbnailHeight = 50.0;
+```
 
-Not Preferred:
+####Not Preferred:
+```Objective-C
 #define CompanyName @"RayWenderlich.com"
 
 #define thumbnailHeight 2
+```
 
 Enumerated Types
 =======================
-When using enums, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: NS_ENUM()
+When using ```enums```, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: ```NS_ENUM()```
 For Example:
+```Objective-C
 typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
   RWTLeftMenuTopItemMain,
   RWTLeftMenuTopItemShows,
   RWTLeftMenuTopItemSchedule
 };
+```
 
 You can also make explicit value assignments (showing older k-style constant definition):
+```Objective-C
 typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
   RWTPinSizeMin = 1,
   RWTPinSizeMax = 5,
   RWTPinCountMin = 100,
   RWTPinCountMax = 500,
 };
+```
 
 Older k-style constant definitions should be avoided unless writing CoreFoundation C code (unlikely).
-Not Preferred:
+####Not Preferred:
+```Objective-C
 enum GlobalConstants {
   kMaxPinSize = 5,
   kMaxPinCount = 500,
 };
+```
 
 Case Statements
 =======================
@@ -460,7 +470,8 @@ if (!error) return success;
 
 Ternary Operator
 =======================
-The Ternary operator, ```?:``` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.
+The Ternary operator, ```?:``` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an ```if``` statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.
+
 Non-boolean variables should be compared against something, and parentheses are added for improved readability. If the variable being compared is a boolean type, then no parentheses are needed.
 
 ####Preferred:
@@ -611,7 +622,6 @@ Xcode project
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
 
 When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many additional warnings as possible. If you need to ignore a specific warning, use Clang's pragma feature.
-
 
 
 
