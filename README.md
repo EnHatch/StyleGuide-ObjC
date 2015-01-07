@@ -60,9 +60,7 @@ Use ```#pragma mark``` - to categorize methods in functional groupings and proto
 - (void)privateMethod {}
  
 #pragma mark - Protocol conformance
-#pragma mark - UITextFieldDelegate
-#pragma mark - UITableViewDataSource
-#pragma mark - UITableViewDelegate
+#pragma mark - Delegates (Such as UITextField Delegate)
  
 #pragma mark - NSCopying
  
